@@ -1,0 +1,17 @@
+version: "3.8" # docker composerのバージョンの指定
+services:
+  # image項目を用意しなければルートディレクトリとここのサービス名を合わせたものがイメージ名になる
+  next:
+    # ↑サービス名
+    build: ./ # buildするdockerfileの位置
+    container_name: next # //作成するdockerコンテナの名前
+    image: next_image
+    volumes:
+      - ./app:/app # docker内と共有するフォルダの指定
+    working_dir: /app # docker内に入った時の初期パスの指定
+    ports:
+      - 3000:3000 # コンテナにバインドするポートの指定（左:自分のPCポート、右:dookerコンテナのポート）
+    tty: true # コンテナが勝手に終了しないための設定
+    stdin_open: true # 標準入出力とエラー出力をコンテナに結びつける設定
+    environment:
+      - CHOKIDAR_USEPOLLING=true # ホットリロードを行う設定

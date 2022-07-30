@@ -1,0 +1,7 @@
+services:
+  next:
+    volumes:
+      - .:/app/fe_next_app:cached
+  # server:
+  #   volumes:
+  #     - .:/workspace:cached

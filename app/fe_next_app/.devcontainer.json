@@ -1,0 +1,10 @@
+{
+    "name": "container next",
+    "dockerComposeFile": [
+        "../../docker-compose.yml",
+        "../../.devcontainer/docker-compose.yml"
+    ],
+    "service": "next",
+    "workspaceFolder": "/app/fe_next_app",
+    "shutdownAction": "none"
+}   
